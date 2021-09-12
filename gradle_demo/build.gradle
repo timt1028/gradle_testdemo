@@ -1,0 +1,29 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+    implementation group: 'commons-io', name: 'commons-io', version: '2.4'
+    implementation group: 'com.google.code.gson', name: 'gson', version: '2.7'
+    testImplementation group: 'com.google.code.gson', name: 'gson', version: '2.5'
+}
+
+configurations.all {
+    resolutionStrategy {
+        failOnVersionConflict()
+    }
+}
+
+
+test {
+    useJUnitPlatform()
+}
